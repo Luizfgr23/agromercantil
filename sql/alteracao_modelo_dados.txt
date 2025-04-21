@@ -1,0 +1,14 @@
+Para realizar uma eventual alteração do modelo de dados e permitir compras compartilhadas de clientes, é necessário alterar a relação
+entre as tabelas clientes e pedidos para uma relação muitos <-> muitos (N:N). A nova tabela deve armazenar os vínculos entre clientes
+e pedidos, além de criar uma chave composta associando o id das colunas das tabelas em relacionamento.
+
+--Código SQL--
+ALTER TABLE pedidos DROP CONSTRAINT pedidos_id_cliente_fkey;
+ALTER TABLE pedidos DROP COLUMN id_cliente;
+
+
+CREATE TABLE clientes_pedidos (
+    id_cliente INT REFERENCES clientes(id_cliente),
+    id_pedido INT REFERENCES pedidos(id_pedido),
+    PRIMARY KEY (id_cliente, id_pedido)
+);

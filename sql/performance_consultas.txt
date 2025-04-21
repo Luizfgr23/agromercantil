@@ -1,0 +1,9 @@
+Para garantir uma performance de qualidade e evitar qualquer tipo de demora ou erro no carregamento de dados no BD,
+existem alguns métodos que garantem uma melhor performance das consultas, como a Criação de INDEX, principalmente 
+no cruzamento JOIN de tabelas.
+
+- CREATE INDEX idx_pedidos_cliente_data ON pedidos (id_cliente, data_pedido DESC);
+- CREATE INDEX idx_itens_pedido_pedido ON itens_pedido (id_pedido); CREATE INDEX idx_pedidos_id ON pedidos (id_pedido);
+- CREATE INDEX idx_pedidos_cliente_data ON pedidos (id_cliente, data_pedido);
+- CREATE INDEX idx_pedidos_data ON pedidos (data_pedido);
+- CREATE INDEX idx_pedidos_data ON pedidos (data_pedido); CREATE INDEX idx_itens_produto_pedido ON itens_pedido (id_pedido, id_produto);
